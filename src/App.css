@@ -1,0 +1,286 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body{
+  background: #222222;
+  
+  min-height: 100vh;
+  
+}
+
+#logo-image img{
+  margin-top: -325px;
+  width: 100%;
+  
+
+
+}
+
+#logo-lg{
+  width: 100%;
+  text-align: center;
+  margin-top: -280px;
+}
+#logo-lg svg{
+  width: 600px;
+  height: 290px;
+  filter: drop-shadow(0px 4px 4px rgba(255, 255, 255, 0.25));
+}
+
+#image-area{
+  margin:357px  auto 90px auto;
+  max-width: 65%;
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.cards{
+  width: 252px;
+  height: 369px;
+  margin-bottom: 105px;
+  border: 1px solid #FFFFFF;
+  display: flex;
+  align-items:  center;
+  flex-direction: column;
+
+}
+
+.cards p{
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+  font-size:18px;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+.card-container{
+  margin-top: -42px ;
+  padding-top: 10px;
+  border-top: 1px solid #fff;
+  
+}
+.card{
+  width: 216px;
+  height: 324px;
+  object-fit: cover;
+}
+.card img {
+  width: 216px;
+  height: 324px;
+}
+#btn-area{
+  width: 1180px;
+  margin: auto;
+  font-family: 'Roboto', sans-serif;
+  color: gray;
+  font-size: 18px;
+}
+
+
+#btns{
+  float: right;
+  font-weight: 600;
+  width: 648px;
+  height: 72px;
+  margin-bottom: 210px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+  
+}
+.btn{
+  cursor: pointer;
+  padding: 0.8rem 0.8rem;
+}
+
+.active,.btn:hover:not(.active){
+  background-color: gray;
+  padding: 0.8rem 0.8rem;
+  color: #222222;
+  border-radius: 35%;
+}
+
+.loading{
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading span{
+  background-color: red;
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+/* view on phone */
+@media screen and (max-width : 576px){
+  #logo-image img{
+      margin-top: -60px;
+      width: 100%;
+  }
+  
+  #logo-lg{
+      width: 100%;
+      margin-top: -170px;
+  }
+  #logo-lg svg{
+      width: 40%;
+  }
+  #btn-area{
+      width: 100%;
+      margin: auto;
+      font-size: 12px;
+  }
+  .three-dot,.last,.first{
+      display: none;
+  } 
+  #btns{
+      float: right;
+      font-weight: 600;
+      width: 100%;
+  }
+  
+  
+}
+
+
+
+
+/* view on mini-tablet */
+
+@media screen and (min-width : 576px)and (max-width:768px){
+  
+  #logo-image img{
+      
+      width: 100%;
+      margin-top: -120px;
+  }
+  
+  #logo-lg{
+      width: 100%;
+      margin-top: -80px;
+  }
+  #logo-lg svg{
+      width: 200px;
+      height: 90px;
+  }
+  #image-area{
+      max-width: 100%;
+  }
+  
+  #btn-area{
+      width: 100%;
+  }
+  #btns{
+      
+      width: 100%;    
+  }
+}
+
+
+
+/* view on tablet */
+@media screen and (min-width : 769px)and (max-width:992px){
+  
+  #logo-image img{
+      
+      width: 100%;
+      margin-top: -150px;
+  }
+  
+  #logo-lg{
+      width: 100%;
+      margin-top: -120px;
+  }
+  #logo-lg svg{
+      width: 360px;
+      height: 120px;
+  }
+  #image-area{
+      max-width: 95%;
+  }
+   
+
+  #btn-area{
+      width: 60%;
+  }
+  #btns{
+      
+      width: 100%;    
+  }
+ 
+}
+
+
+/* view on desktop */
+
+@media screen and (min-width : 993px)and (max-width:1200px){
+  
+  #logo-image img{
+      
+      width: 100%;
+      margin-top: -150px;
+  }
+  
+  #logo-lg{
+      width: 100%;
+      margin-top: -120px;
+  }
+  #logo-lg svg{
+      width: 450px;
+      height: 180px;
+  }
+  #image-area{
+      max-width: 85%;
+  }
+
+
+  #btn-area{
+      width: 60%;
+  }
+  #btns{
+      
+      width: 100%;    
+  }
+ 
+}
+
+/* view on large-desktop */
+
+@media screen and (min-width : 1201px)and (max-width:1400px){
+  
+  #logo-image img{
+      
+      width: 100%;
+      margin-top: -220px;
+  }
+  
+  #logo-lg{
+      width: 100%;
+      margin-top: -220px;
+  }
+  #logo-lg svg{
+      width: 600px;
+      height: 200px;
+  }
+
+  #image-area{
+      max-width: 85%;
+  }
+} 
+
+
+
+
