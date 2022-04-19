@@ -8,28 +8,15 @@
 body{
   background: #222222;
   
+  overflow-x: hidden;
   min-height: 100vh;
   
 }
 
-#logo-image img{
-  margin-top: -325px;
-  width: 100%;
-  
-
-
+.App svg{
+  margin-top: -5%;
 }
 
-#logo-lg{
-  width: 100%;
-  text-align: center;
-  margin-top: -280px;
-}
-#logo-lg svg{
-  width: 600px;
-  height: 290px;
-  filter: drop-shadow(0px 4px 4px rgba(255, 255, 255, 0.25));
-}
 
 #image-area{
   margin:357px  auto 90px auto;
@@ -126,18 +113,7 @@ body{
 
 /* view on phone */
 @media screen and (max-width : 576px){
-  #logo-image img{
-      margin-top: -60px;
-      width: 100%;
-  }
   
-  #logo-lg{
-      width: 100%;
-      margin-top: -170px;
-  }
-  #logo-lg svg{
-      width: 40%;
-  }
   #btn-area{
       width: 100%;
       margin: auto;
@@ -162,20 +138,7 @@ body{
 
 @media screen and (min-width : 576px)and (max-width:768px){
   
-  #logo-image img{
-      
-      width: 100%;
-      margin-top: -120px;
-  }
   
-  #logo-lg{
-      width: 100%;
-      margin-top: -80px;
-  }
-  #logo-lg svg{
-      width: 200px;
-      height: 90px;
-  }
   #image-area{
       max-width: 100%;
   }
@@ -194,20 +157,7 @@ body{
 /* view on tablet */
 @media screen and (min-width : 769px)and (max-width:992px){
   
-  #logo-image img{
-      
-      width: 100%;
-      margin-top: -150px;
-  }
   
-  #logo-lg{
-      width: 100%;
-      margin-top: -120px;
-  }
-  #logo-lg svg{
-      width: 360px;
-      height: 120px;
-  }
   #image-area{
       max-width: 95%;
   }
@@ -228,20 +178,7 @@ body{
 
 @media screen and (min-width : 993px)and (max-width:1200px){
   
-  #logo-image img{
-      
-      width: 100%;
-      margin-top: -150px;
-  }
-  
-  #logo-lg{
-      width: 100%;
-      margin-top: -120px;
-  }
-  #logo-lg svg{
-      width: 450px;
-      height: 180px;
-  }
+ 
   #image-area{
       max-width: 85%;
   }
@@ -261,20 +198,7 @@ body{
 
 @media screen and (min-width : 1201px)and (max-width:1400px){
   
-  #logo-image img{
-      
-      width: 100%;
-      margin-top: -220px;
-  }
   
-  #logo-lg{
-      width: 100%;
-      margin-top: -220px;
-  }
-  #logo-lg svg{
-      width: 600px;
-      height: 200px;
-  }
 
   #image-area{
       max-width: 85%;

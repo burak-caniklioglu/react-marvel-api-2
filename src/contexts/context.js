@@ -1,68 +1,93 @@
-import React, { useContext,useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useContext, useState, useEffect } from "react";
+import axios from "axios";
 
 const CharacterContext = React.createContext();
 
-const CharacterProvider = ({children}) => {
-    const [data, setData] = useState({ res:[], total: 0 });
-    const [loading, setLoading] = useState(false);
-    const [offset, setOffset] = useState(0);
-    const hash= '0b3b8996d2019d3f5e64dfcc68f7e757';
-    const url = `https://gateway.marvel.com/v1/public/characters?limit=12&offset=${offset * 12}&ts=1&apikey=75ff82aee4aef7e1bdb522eea36271d4&hash=${hash}`
+const CharacterProvider = ({ children }) => {
+  const [data, setData] = useState({ res: [], total: 0 });
+  const [loading, setLoading] = useState(false);
+  const [offset, setOffset] = useState(0);
 
-    useEffect(() => {
-        try {
-            const getCharacter = JSON.parse(sessionStorage.getItem('character')) || [];
-            const getTotal = sessionStorage.getItem('total') || 0;
-            const apiFetch = async () => {
-                const response = await axios.get(url);
-                sessionStorage.setItem('character', JSON.stringify({
-                    ...getCharacter,
-                    [offset]: [...response.data.data.results],
-                
-                  }));
+  const [totalPage, setTotalPage] = useState([]);
+  const hash = "0b3b8996d2019d3f5e64dfcc68f7e757";
 
-                sessionStorage.setItem('total', response.data.data.total);
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        let getCards = sessionStorage.getItem("characters");
+        let total = sessionStorage.getItem("total");
+
+        if (getCards) {
+          if (total) {
+            setTotalPage([]);
+            for (let i = 0; i < +total; i++) {
+              totalPage.push(i);
             }
-            if(getCharacter[offset]){
-                setData({res: [...getCharacter[offset]], total: getTotal});
-                setLoading(false);
-            }else{
-                setLoading(true);
-                apiFetch();
-                setData({res: [...getCharacter[offset]], total: getTotal});
-            }   
-        } catch (error) {
-            console.log(error)
-        }finally{
+            setTotalPage(totalPage);
+          }
+
+          getCards = JSON.parse(getCards);
+          if (getCards[offset]) {
+            setData({ ...data, res: getCards[offset] });
+          } else {
+            setLoading(true);
+
+            const response = await axios.get(
+              `https://gateway.marvel.com/v1/public/characters?limit=12&offset=${
+                offset * 12
+              }&ts=1&apikey=75ff82aee4aef7e1bdb522eea36271d4&hash=${hash}`
+            );
+            setData({ res: response.data.data.results, total: response.data.data.total });
+            sessionStorage.setItem('characters', JSON.stringify({...getCards, [offset]: response.data.data.results}));
+            
             setLoading(false);
+          }
+        } else {
+          const response = await axios.get(
+            `https://gateway.marvel.com/v1/public/characters?limit=12&offset=${
+              offset * 12
+            }&ts=1&apikey=75ff82aee4aef7e1bdb522eea36271d4&hash=${hash}`
+          );
+          const data = response.data.data.results;
+          const total = response.data.data.total;
+
+          const totalpage = Math.ceil(total / 12);
+          sessionStorage.setItem("total", totalpage);
+          for (let i = 0; i < totalpage; i++) {
+            totalPage.push(i);
+          }
+          setTotalPage(totalPage);
+          sessionStorage.setItem(
+            "characters",
+            JSON.stringify({ [offset]: data })
+          );
+          setData({ res: data, total: totalpage });
+          setLoading(false);
         }
-        
-}, [offset])
-    
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData();
+  }, [offset]);
 
-
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-    return(
-        <CharacterContext.Provider
-        
-        >
-            {children}
-        </CharacterContext.Provider>
-    )
-}
+  return (
+    <CharacterContext.Provider
+      value={{
+        data,
+        totalPage,
+        offset,
+        setOffset,
+        loading,
+      }}
+    >
+      {children}
+    </CharacterContext.Provider>
+  );
+};
 
 function useCharacter() {
-    return useContext(CharacterContext);
+  return useContext(CharacterContext);
 }
 
-export {CharacterContext, CharacterProvider, useCharacter};
+export { CharacterContext, CharacterProvider, useCharacter };
