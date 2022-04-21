@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    margin-bottom: 10vh;
+}
+.hero-container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.super-hero{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5rem 1rem;
+}
+
+.hero-img-area{
+    align-self: center;
+    padding: 2rem;
+    
+}
+
+.hero-img-area img{
+    border-radius: 100%;
+    max-width: 17vw;
+}
+
+.hero-info-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px;
+}
+.hero-name{
+    font-size: 4rem;
+    text-align: center;
+}
+.hero-desc{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    min-height: 3rem;
+}
+.series-stories{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    min-width: 300px;
+    min-height: 3rem;
+}
+
+.series-stories h2{
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.series-stories li{
+    list-style: none;
+}
+.back-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    padding: 0rem 2rem;
+    background: #7E7E7E;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.5rem;
+    color: #000;
+    cursor: pointer;
+}
+
+
+@media screen and (width < 769px) {
+    .super-hero{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 5rem 1rem;
+    }
+    .hero-img-area img{
+        border-radius: 100%;
+        max-width: 50vw;
+    }
+}

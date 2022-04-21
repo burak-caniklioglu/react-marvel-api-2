@@ -17,9 +17,35 @@ body{
   margin-top: -5%;
 }
 
-
+.input-area{
+  max-width: 65%;
+  margin: 50px auto;
+  min-height: 220px;
+}
+.input-container{
+  max-width: 50%;
+  background-color: #8e8e8e;
+}
+input[type="text"] {
+  border: 2px solid #8e8e8e;
+  height: 52px;
+  background-color: #222222;
+  border-radius: 4px;
+  padding: 0 22px;
+  font-size: 16px;
+  line-height: 20.2px;
+  letter-spacing: 0.15px;
+  color: #fff;
+  outline: none;
+  width: 100%;
+}
+li{
+  list-style: none;
+  padding: 5px 10px;
+  border-bottom: 1px solid #222222;
+}
 #image-area{
-  margin:357px  auto 90px auto;
+  margin:57px  auto 90px auto;
   max-width: 65%;
 }
 

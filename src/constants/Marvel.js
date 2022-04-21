@@ -3,7 +3,7 @@ import React from "react";
 function Marvel(props) {
   return (
     <svg
-      width={props.width}
+      width={props.width || 1920}
       
       viewBox="0 0 1920 1101"
       fill="none"

@@ -1,5 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import i18n from 'i18next'
 
 const CharacterContext = React.createContext();
 
@@ -7,9 +9,20 @@ const CharacterProvider = ({ children }) => {
   const [data, setData] = useState({ res: [], total: 0 });
   const [loading, setLoading] = useState(false);
   const [offset, setOffset] = useState(0);
+  
+  const [isLang,setIsLang] = useState('tr')
 
   const [totalPage, setTotalPage] = useState([]);
   const hash = "0b3b8996d2019d3f5e64dfcc68f7e757";
+
+  const navigate = useNavigate();
+  const moreClick = (item) => {
+    navigate('/details/'+ item.id, {state: {item}});
+  }
+  const changeLang = (item) => {
+    setIsLang(item)
+    i18n.changeLanguage(item)
+  }
 
   useEffect(() => {
     const getData = async () => {
@@ -71,6 +84,8 @@ const CharacterProvider = ({ children }) => {
     getData();
   }, [offset]);
 
+  
+
   return (
     <CharacterContext.Provider
       value={{
@@ -79,6 +94,10 @@ const CharacterProvider = ({ children }) => {
         offset,
         setOffset,
         loading,
+        moreClick,
+        changeLang,
+        isLang,
+        setIsLang
       }}
     >
       {children}
